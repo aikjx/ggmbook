@@ -6,15 +6,16 @@
 
 | 书籍 | 文章数 | 入口 |
 | --- | ---: | --- |
-| 全域数学 | 1 | [进入归档](/zh/books/math/articles/) |
+| 全域数学 | 2 | [进入归档](/zh/books/math/articles/) |
 | 哥德巴赫猜想 | 0 | [进入归档](/zh/books/goldbach/articles/) |
 | 数术工坊 | 0 | [进入归档](/zh/books/shushu/articles/) |
 | 文明进阶200讲 | 0 | [进入归档](/zh/books/course/articles/) |
-| **总计** | **1** | - |
+| **总计** | **2** | - |
 
 ## 最新收录
 
 - [数术江湖全卷合集-硬核江湖数理史诗](/zh/books/math/articles/161954834/) · 全域数学
+- [0-1-全域体系下磁场-引力维度压缩同源统一理论MagneticField-Gravitationa](/zh/books/math/articles/161157765/) · 全域数学
 
 ## 分类说明
 

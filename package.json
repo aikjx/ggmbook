@@ -5,7 +5,9 @@
   "scripts": {
     "dev": "vitepress dev docs",
     "build": "vitepress build docs",
-    "serve": "vitepress serve docs"
+    "serve": "vitepress serve docs",
+    "archive:build": "python docs/books/build_csdn_archives.py",
+    "archive:purge": "python docs/books/build_csdn_archives.py --purge"
   },
   "devDependencies": {
     "vitepress": "1.0.0-alpha.28",
