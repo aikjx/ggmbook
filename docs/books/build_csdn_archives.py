@@ -1,10 +1,12 @@
 from __future__ import annotations
 
 from dataclasses import dataclass
+import base64
 from html import unescape
 from html.parser import HTMLParser
 import argparse
 import hashlib
+import json
 import mimetypes
 from pathlib import Path
 import re
@@ -170,8 +172,28 @@ CATEGORIES = {
             "第27讲",
             "第28讲",
             "第29讲",
+            "第30讲",
+            "第31讲",
+            "第32讲",
+            "第33讲",
+            "第34讲",
+            "第35讲",
+            "第36讲",
+            "第37讲",
+            "第38讲",
+            "第39讲",
+            "第40讲",
+            "第41讲",
+            "第42讲",
+            "第43讲",
+            "第44讲",
+            "第45讲",
+            "第46讲",
+            "第47讲",
+            "第48讲",
+            "第49讲",
+            "第50讲",
             "小学通俗版",
-            "初中",
         ),
     ),
 }
@@ -482,16 +504,55 @@ def classify_article(title: str, content: str) -> str:
     return best_key if best_score > 0 else "math"
 
 
-def render_article_page(category: Category, article_id: str, original_name: str, title: str, content: str) -> str:
+def markdown_to_plain_text(content: str) -> str:
+    text = content.replace("\r\n", "\n").replace("\r", "\n")
+    text = re.sub(r"!\[([^\]]*)\]\([^)]+\)", r"\1", text)
+    text = re.sub(r"\[([^\]]+)\]\([^)]+\)", r"\1", text)
+    text = re.sub(r"^#{1,6}\s*", "", text, flags=re.MULTILINE)
+    text = re.sub(r"^>\s*", "", text, flags=re.MULTILINE)
+    text = re.sub(r"^\s*[-*+]\s+", "", text, flags=re.MULTILINE)
+    text = re.sub(r"^\s*\d+\.\s+", "", text, flags=re.MULTILINE)
+    text = re.sub(r"`([^`]+)`", r"\1", text)
+    text = re.sub(r"```[\w-]*\n", "", text)
+    text = text.replace("```", "")
+    text = text.replace("**", "").replace("__", "").replace("*", "").replace("_", "")
+    text = text.replace("$$", "").replace("$", "")
+    text = re.sub(r"<[^>]+>", "", text)
+    text = unescape(text)
+    text = re.sub(r"\n{3,}", "\n\n", text)
+    return text.strip()
+
+
+def encode_copy_payload(value: str) -> str:
+    return base64.b64encode(value.encode("utf-8")).decode("ascii")
+
+
+def render_article_body(category: Category, article_id: str, original_name: str, content: str) -> str:
     return (
-        "---\n"
-        f"title: {yaml_quote(title)}\n"
-        "---\n\n"
         f"> 分类：{category.zh_name}  \n"
         f"> 编号：`{article_id}`  \n"
         f"> 原始文件：`{original_name}`  \n"
         f"> 返回：[本书归档]({category.zh_route}) · [总入口](/zh/books/articles/)\n\n"
         f"{content.strip()}\n"
+    )
+
+
+def render_article_page(category: Category, article_id: str, original_name: str, title: str, content: str) -> str:
+    article_body = render_article_body(category, article_id, original_name, content)
+    payload = json.dumps(
+        {
+            "markdown": encode_copy_payload(article_body),
+            "text": encode_copy_payload(markdown_to_plain_text(article_body)),
+        },
+        separators=(",", ":"),
+    )
+    return (
+        "---\n"
+        f"title: {yaml_quote(title)}\n"
+        "---\n\n"
+        f"<ArchiveCopyPanel article-id=\"{article_id}\" />\n"
+        f"<div class=\"gg-copy-payload\" data-article-id=\"{article_id}\">{payload}</div>\n\n"
+        f"{article_body}"
     )
 
 
@@ -625,6 +686,21 @@ def read_frontmatter_title(md_path: Path) -> str:
     return md_path.parent.name
 
 
+def extract_lecture_number(title: str) -> int | None:
+    match = re.search(r"第\s*(\d{1,3})\s*讲", title)
+    if not match:
+        return None
+    return int(match.group(1))
+
+
+def extract_lecture_number_from_file(md_path: Path) -> int | None:
+    try:
+        text = md_path.read_text(encoding="utf-8", errors="ignore")
+    except OSError:
+        return None
+    return extract_lecture_number(text)
+
+
 def build_indexes_from_generated() -> dict[str, list[dict[str, str]]]:
     grouped: dict[str, list[dict[str, str]]] = {key: [] for key in CATEGORIES}
     for key, category in CATEGORIES.items():
@@ -646,7 +722,20 @@ def build_indexes_from_generated() -> dict[str, list[dict[str, str]]]:
                     "category_name": category.zh_name,
                 }
             )
-        grouped[key].sort(key=lambda item: int(item["id"]) if item["id"].isdigit() else 0, reverse=True)
+        for article in grouped[key]:
+            article["lecture"] = extract_lecture_number(article["title"]) or extract_lecture_number_from_file(
+                archive_dir / article["id"] / "index.md"
+            )
+        if key == "course":
+            grouped[key].sort(
+                key=lambda item: (
+                    item["lecture"] is None,
+                    item["lecture"] if item["lecture"] is not None else 10**9,
+                    -(int(item["id"]) if item["id"].isdigit() else 0),
+                )
+            )
+        else:
+            grouped[key].sort(key=lambda item: int(item["id"]) if item["id"].isdigit() else 0, reverse=True)
         (archive_dir / "index.md").write_text(render_category_index(category, grouped[key]), encoding="utf-8")
 
     recent_articles: list[dict[str, str]] = []

@@ -93,3 +93,41 @@
   color: var(--vp-c-text-2);
   line-height: 1.6;
 }
+
+.gg-copy-actions {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  gap: 0.75rem;
+  margin: 0 0 1.25rem;
+  padding: 0.9rem 1rem;
+  border: 1px solid var(--gg-border);
+  border-radius: 14px;
+  background: var(--vp-c-bg-soft);
+}
+
+.gg-copy-button {
+  border: 1px solid var(--gg-brand);
+  border-radius: 999px;
+  background: transparent;
+  color: var(--gg-brand);
+  padding: 0.45rem 0.9rem;
+  font-size: 0.92rem;
+  cursor: pointer;
+  transition: background-color 0.18s ease, color 0.18s ease, transform 0.18s ease;
+}
+
+.gg-copy-button:hover {
+  background: var(--gg-brand);
+  color: #fff;
+  transform: translateY(-1px);
+}
+
+.gg-copy-status {
+  color: var(--vp-c-text-2);
+  font-size: 0.9rem;
+}
+
+.gg-copy-payload {
+  display: none;
+}

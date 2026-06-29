@@ -9,8 +9,8 @@ The articles from `docs/aa/CSDN博文备份` are automatically classified into b
 | Universal Mathematics | 2 | [Open Chinese Archive](/zh/books/math/articles/) |
 | Goldbach Conjecture | 0 | [Open Chinese Archive](/zh/books/goldbach/articles/) |
 | Shushu Workshop | 0 | [Open Chinese Archive](/zh/books/shushu/articles/) |
-| Civilization Course | 0 | [Open Chinese Archive](/zh/books/course/articles/) |
-| **Total** | **2** | - |
+| Civilization Course | 49 | [Open Chinese Archive](/zh/books/course/articles/) |
+| **Total** | **51** | - |
 
 ## Notes
 
