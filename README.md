@@ -2,6 +2,12 @@
 
 全域数学·VitePress 文档站点工程。
 
+## 开源协议与版权
+
+- License：MIT（见 [LICENSE](LICENSE)）
+- 版权主体：乖乖数学团队
+- 开源说明与合规提示：见 [OPEN_SOURCE.md](project_docs/OPEN_SOURCE.md)
+
 ## 快速开始
 
 ```bash
@@ -32,5 +38,5 @@ pnpm run archive:purge
 
 ## 项目文档
 
-目录规范、自动化流程、审核流程见 [PROJECT.md](file:///d:/a10/aikjx/gitcode/ggbook/PROJECT.md)。
+固定目录：`project_docs/`，主文档见 [PROJECT.md](project_docs/PROJECT.md)。
 
