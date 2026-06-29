@@ -1,0 +1,22 @@
+@import "katex/dist/katex.min.css";
+
+:root {
+  --katex-color: #213547;
+}
+
+.dark {
+  --katex-color: #e5e5e5;
+}
+
+.katex {
+  font-size: 1.1em;
+}
+
+.katex-display {
+  overflow-x: auto;
+  overflow-y: hidden;
+}
+
+.math {
+  font-family: KaTeX_Main, Times New Roman, serif;
+}
