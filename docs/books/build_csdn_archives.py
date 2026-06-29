@@ -3,14 +3,27 @@ from __future__ import annotations
 from dataclasses import dataclass
 from html import unescape
 from html.parser import HTMLParser
+import argparse
+import hashlib
+import mimetypes
 from pathlib import Path
 import re
+import shutil
+import time
+from urllib.error import URLError, HTTPError
+from urllib.parse import urlparse
+from urllib.request import Request, urlopen
 
 
 DOCS_DIR = Path(__file__).resolve().parent.parent
 SOURCE_DIR = DOCS_DIR / "aa" / "CSDN博文备份"
 ZH_BOOKS_DIR = DOCS_DIR / "zh" / "books"
 EN_BOOKS_DIR = DOCS_DIR / "en" / "books"
+LOG_PATH = DOCS_DIR / "books" / "archive_build.log"
+
+DEFAULT_TIMEOUT_SEC = 20
+DEFAULT_RETRIES = 2
+DEFAULT_USER_AGENT = "ggbook-archive-bot/1.0"
 
 
 @dataclass(frozen=True)
@@ -247,6 +260,172 @@ def yaml_quote(value: str) -> str:
     return '"' + value.replace("\\", "\\\\").replace('"', '\\"') + '"'
 
 
+def normalize_http_url(url: str) -> str:
+    url = url.strip()
+    if url.startswith("//"):
+        return "https:" + url
+    if url.startswith("http://"):
+        return "https://" + url[len("http://") :]
+    return url
+
+
+def is_http_url(url: str) -> bool:
+    return url.startswith("http://") or url.startswith("https://") or url.startswith("//")
+
+
+def classify_image_host(url: str) -> str:
+    parsed = urlparse(normalize_http_url(url))
+    netloc = (parsed.netloc or "").lower()
+    if "csdnimg" in netloc or netloc.endswith("csdn.net") or "csdn" in netloc:
+        return "csdnimg"
+    return "external"
+
+
+def guess_extension(url: str, content_type: str | None) -> str:
+    parsed = urlparse(normalize_http_url(url))
+    path = parsed.path or ""
+    match = re.search(r"\.([A-Za-z0-9]{1,5})$", path)
+    if match:
+        ext = "." + match.group(1).lower()
+        if ext in {".png", ".jpg", ".jpeg", ".gif", ".webp", ".svg"}:
+            return ".jpg" if ext == ".jpeg" else ext
+
+    if content_type:
+        mime = content_type.split(";")[0].strip().lower()
+        ext = mimetypes.guess_extension(mime) or ""
+        if ext in {".png", ".jpg", ".jpeg", ".gif", ".webp", ".svg"}:
+            return ".jpg" if ext == ".jpeg" else ext
+
+    return ".png"
+
+
+def safe_write_bytes(path: Path, data: bytes) -> None:
+    path.parent.mkdir(parents=True, exist_ok=True)
+    tmp_path = path.with_suffix(path.suffix + ".tmp")
+    tmp_path.write_bytes(data)
+    tmp_path.replace(path)
+
+
+def log_line(message: str) -> None:
+    LOG_PATH.parent.mkdir(parents=True, exist_ok=True)
+    with LOG_PATH.open("a", encoding="utf-8") as fp:
+        fp.write(message.rstrip() + "\n")
+
+
+def fetch_image_bytes(url: str, *, timeout_sec: int, retries: int) -> tuple[bytes | None, str | None]:
+    url = normalize_http_url(url)
+    last_error: Exception | None = None
+    for attempt in range(retries + 1):
+        try:
+            req = Request(url, headers={"User-Agent": DEFAULT_USER_AGENT})
+            with urlopen(req, timeout=timeout_sec) as resp:
+                data = resp.read()
+                content_type = resp.headers.get("Content-Type")
+                if not data:
+                    return None, content_type
+                return data, content_type
+        except (HTTPError, URLError, TimeoutError, ValueError) as exc:
+            last_error = exc
+            time.sleep(0.6 * (attempt + 1))
+    if last_error:
+        print(f"图片拉取失败: {url} ({type(last_error).__name__})")
+    return None, None
+
+
+def download_image(url: str, dest_path: Path, *, timeout_sec: int, retries: int) -> bool:
+    if dest_path.exists() and dest_path.stat().st_size > 0:
+        return True
+    data, _ = fetch_image_bytes(url, timeout_sec=timeout_sec, retries=retries)
+    if not data:
+        return False
+    safe_write_bytes(dest_path, data)
+    return True
+
+
+def parse_markdown_image_url(raw: str) -> str:
+    raw = raw.strip()
+    if raw.startswith("<") and raw.endswith(">"):
+        raw = raw[1:-1].strip()
+    raw = raw.strip('"').strip("'")
+    parts = raw.split()
+    return parts[0] if parts else raw
+
+
+def localize_images_in_markdown(
+    content: str,
+    assets_root: Path,
+    *,
+    download: bool,
+    timeout_sec: int,
+    retries: int,
+) -> tuple[str, int, int]:
+    md_image_pattern = re.compile(r"!\[([^\]]*)\]\(([^)]+)\)")
+    html_img_pattern = re.compile(r"(<img[^>]*?\ssrc=)(['\"])([^'\"]+)(\2)", re.IGNORECASE)
+    md_ref_pattern = re.compile(r"(^\s*\[[^\]]+\]:\s*)(\S+)(.*$)", re.MULTILINE)
+    url_map: dict[str, str] = {}
+    downloaded_count = 0
+    total_count = 0
+
+    def build_local_ref(norm_url: str, *, prefer_content_type: str | None) -> str:
+        nonlocal downloaded_count, total_count
+        total_count += 1
+        if not download:
+            return norm_url
+
+        data, content_type = fetch_image_bytes(norm_url, timeout_sec=timeout_sec, retries=retries)
+        if not data:
+            return norm_url
+
+        host_group = classify_image_host(norm_url)
+        ext = guess_extension(norm_url, content_type or prefer_content_type)
+        ext_dir = ext.lstrip(".") or "bin"
+        digest = hashlib.sha1(norm_url.encode("utf-8")).hexdigest()[:16]
+        filename = f"{digest}{ext}"
+        host_dir = assets_root / host_group / ext_dir
+        host_dir.mkdir(parents=True, exist_ok=True)
+        safe_write_bytes(host_dir / filename, data)
+        downloaded_count += 1
+        return f"./assets/{host_group}/{ext_dir}/{filename}"
+
+    def get_rewritten_url(url: str) -> str:
+        if not is_http_url(url):
+            return url
+        norm_url = normalize_http_url(url)
+        if norm_url not in url_map:
+            url_map[norm_url] = build_local_ref(norm_url, prefer_content_type=None)
+        return url_map[norm_url]
+
+    def replace_md_image(match: re.Match[str]) -> str:
+        nonlocal downloaded_count, total_count
+        alt_text = match.group(1)
+        raw_target = match.group(2)
+        url = parse_markdown_image_url(raw_target)
+        rewritten_url = get_rewritten_url(url)
+        if rewritten_url == url:
+            return match.group(0)
+        return f"![{alt_text}]({rewritten_url})"
+
+    def replace_html_img(match: re.Match[str]) -> str:
+        prefix = match.group(1)
+        quote = match.group(2)
+        src = match.group(3)
+        suffix_quote = match.group(4)
+        rewritten_url = get_rewritten_url(src)
+        return f"{prefix}{quote}{rewritten_url}{suffix_quote}"
+
+    def replace_md_ref(match: re.Match[str]) -> str:
+        prefix = match.group(1)
+        url = match.group(2)
+        suffix = match.group(3)
+        rewritten_url = get_rewritten_url(url)
+        return f"{prefix}{rewritten_url}{suffix}"
+
+    rewritten = md_image_pattern.sub(replace_md_image, content)
+    rewritten = html_img_pattern.sub(replace_html_img, rewritten)
+    rewritten = md_ref_pattern.sub(replace_md_ref, rewritten)
+    return rewritten, downloaded_count, total_count
+
+
 def sanitize_content(content: str) -> str:
     parser = MarkdownArchiveParser()
     normalized = content.replace("\r\n", "\n").replace("\r", "\n")
@@ -334,7 +513,7 @@ def render_category_index(category: Category, articles: list[dict[str, str]]) ->
         "",
     ]
     for article in articles:
-        lines.append(f"- [{article['title']}]({category.zh_route}{article['id']})")
+        lines.append(f"- [{article['title']}]({category.zh_route}{article['id']}/)")
     lines.append("")
     return "\n".join(lines)
 
@@ -409,53 +588,72 @@ def render_overview_en(grouped: dict[str, list[dict[str, str]]]) -> str:
     return "\n".join(lines)
 
 
-def ensure_clean_archive_dirs() -> None:
+def ensure_archive_dirs(*, purge: bool) -> None:
     for key in CATEGORIES:
         archive_dir = ZH_BOOKS_DIR / key / "articles"
-        if archive_dir.exists():
-            for file_path in archive_dir.glob("*.md"):
-                file_path.unlink()
+        if purge and archive_dir.exists():
+            for child in archive_dir.iterdir():
+                if child.is_dir():
+                    shutil.rmtree(child)
+                else:
+                    child.unlink()
         archive_dir.mkdir(parents=True, exist_ok=True)
 
+    (ZH_BOOKS_DIR / "articles").mkdir(parents=True, exist_ok=True)
+    (EN_BOOKS_DIR / "articles").mkdir(parents=True, exist_ok=True)
 
-def build_archives() -> None:
-    ensure_clean_archive_dirs()
-    source_files = sorted(SOURCE_DIR.glob("*.md"))
+
+def read_frontmatter_title(md_path: Path) -> str:
+    try:
+        lines = md_path.read_text(encoding="utf-8", errors="ignore").splitlines()
+    except OSError:
+        return md_path.parent.name
+    if not lines or lines[0].strip() != "---":
+        return md_path.parent.name
+    for i in range(1, min(len(lines), 30)):
+        line = lines[i].strip()
+        if line == "---":
+            break
+        match = re.match(r'^title:\s*"(.*)"\s*$', line)
+        if match:
+            return match.group(1).strip() or md_path.parent.name
+        match = re.match(r"^title:\s*(.*)\s*$", line)
+        if match:
+            raw = match.group(1).strip().strip('"').strip("'")
+            if raw:
+                return raw
+    return md_path.parent.name
+
+
+def build_indexes_from_generated() -> dict[str, list[dict[str, str]]]:
     grouped: dict[str, list[dict[str, str]]] = {key: [] for key in CATEGORIES}
-
-    for path in source_files:
-        title = clean_title(path)
-        raw_content = read_text(path).strip()
-        content = sanitize_content(raw_content)
-        category_key = classify_article(title, content)
-        category = CATEGORIES[category_key]
-        article_id = extract_article_id(path)
-        target_path = ZH_BOOKS_DIR / category_key / "articles" / f"{article_id}.md"
-        target_path.write_text(
-            render_article_page(category, article_id, path.name, title, content),
-            encoding="utf-8",
-        )
-        grouped[category_key].append(
-            {
-                "id": article_id,
-                "title": title,
-                "route": f"{category.zh_route}{article_id}",
-                "category_name": category.zh_name,
-            }
-        )
-
-    for key, articles in grouped.items():
-        articles.sort(key=lambda item: int(item["id"]) if item["id"].isdigit() else 0, reverse=True)
-        index_path = ZH_BOOKS_DIR / key / "articles" / "index.md"
-        index_path.write_text(render_category_index(CATEGORIES[key], articles), encoding="utf-8")
+    for key, category in CATEGORIES.items():
+        archive_dir = ZH_BOOKS_DIR / key / "articles"
+        if not archive_dir.exists():
+            continue
+        for child in archive_dir.iterdir():
+            if not child.is_dir():
+                continue
+            article_id = child.name
+            index_md = child / "index.md"
+            if not index_md.exists():
+                continue
+            grouped[key].append(
+                {
+                    "id": article_id,
+                    "title": read_frontmatter_title(index_md),
+                    "route": f"{category.zh_route}{article_id}/",
+                    "category_name": category.zh_name,
+                }
+            )
+        grouped[key].sort(key=lambda item: int(item["id"]) if item["id"].isdigit() else 0, reverse=True)
+        (archive_dir / "index.md").write_text(render_category_index(category, grouped[key]), encoding="utf-8")
 
     recent_articles: list[dict[str, str]] = []
     for items in grouped.values():
         recent_articles.extend(items)
     recent_articles.sort(key=lambda item: int(item["id"]) if item["id"].isdigit() else 0, reverse=True)
 
-    (ZH_BOOKS_DIR / "articles").mkdir(parents=True, exist_ok=True)
-    (EN_BOOKS_DIR / "articles").mkdir(parents=True, exist_ok=True)
     (ZH_BOOKS_DIR / "articles" / "index.md").write_text(
         render_overview_zh(grouped, recent_articles[:20]),
         encoding="utf-8",
@@ -464,12 +662,91 @@ def build_archives() -> None:
         render_overview_en(grouped),
         encoding="utf-8",
     )
+    return grouped
 
+
+def build_archives(
+    *,
+    limit: int | None,
+    only_ids: list[str],
+    download_images: bool,
+    purge: bool,
+    progress_every: int,
+) -> None:
+    if purge:
+        LOG_PATH.write_text("", encoding="utf-8")
+
+    ensure_archive_dirs(purge=purge)
+
+    source_files: list[Path]
+    if only_ids:
+        selected: list[Path] = []
+        for article_id in only_ids:
+            selected.extend(sorted(SOURCE_DIR.glob(f"*-{article_id}.md")))
+        seen: set[Path] = set()
+        source_files = []
+        for file_path in selected:
+            if file_path not in seen:
+                source_files.append(file_path)
+                seen.add(file_path)
+    else:
+        source_files = sorted(SOURCE_DIR.glob("*.md"))
+        if limit is not None:
+            source_files = source_files[:limit]
+
+    total_images = 0
+    downloaded_images = 0
+
+    for idx, path in enumerate(source_files, start=1):
+        title = clean_title(path)
+        raw_content = read_text(path).strip()
+        content = sanitize_content(raw_content)
+        category_key = classify_article(title, content)
+        category = CATEGORIES[category_key]
+        article_id = extract_article_id(path)
+        article_dir = ZH_BOOKS_DIR / category_key / "articles" / article_id
+        if article_dir.exists():
+            shutil.rmtree(article_dir)
+        assets_root = article_dir / "assets"
+        localized, dl_count, img_count = localize_images_in_markdown(
+            content,
+            assets_root,
+            download=download_images,
+            timeout_sec=DEFAULT_TIMEOUT_SEC,
+            retries=DEFAULT_RETRIES,
+        )
+        total_images += img_count
+        downloaded_images += dl_count
+        article_dir.mkdir(parents=True, exist_ok=True)
+        (article_dir / "index.md").write_text(
+            render_article_page(category, article_id, path.name, title, localized),
+            encoding="utf-8",
+        )
+        if progress_every > 0 and idx % progress_every == 0:
+            log_line(
+                f"进度 {idx}/{len(source_files)}: {path.name} | 图片 {downloaded_images}/{total_images}"
+            )
+
+    grouped = build_indexes_from_generated()
     total = sum(len(items) for items in grouped.values())
-    print(f"已生成 {total} 篇归档文章")
+    log_line(f"已生成 {total} 篇归档文章")
     for key in ("math", "goldbach", "shushu", "course"):
-        print(f"  {key}: {len(grouped[key])} 篇")
+        log_line(f"  {key}: {len(grouped[key])} 篇")
+    log_line(f"图片引用: {total_images}，已下载: {downloaded_images}")
 
 
 if __name__ == "__main__":
-    build_archives()
+    parser = argparse.ArgumentParser()
+    parser.add_argument("--limit", type=int, default=None)
+    parser.add_argument("--only-id", action="append", default=[])
+    parser.add_argument("--no-download-images", action="store_true")
+    parser.add_argument("--purge", action="store_true")
+    parser.add_argument("--progress-every", type=int, default=25)
+    args = parser.parse_args()
+    build_archives(
+        limit=args.limit,
+        only_ids=args.only_id,
+        download_images=not args.no_download_images,
+        purge=args.purge,
+        progress_every=args.progress_every,
+    )

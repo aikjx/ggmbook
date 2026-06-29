@@ -39,14 +39,14 @@ $$\begin{bmatrix} 4 & 9 & 2 \\ 3 & 5 & 7 \\ 8 & 1 & 6 \end{bmatrix}$$
 
 ## 数术八卷
 
-1. [第一卷·泛函套娃录](/zh/books/math/articles/161954834)
-2. [第二卷·天命赌坊录](/zh/books/shushu/articles/161902148)
-3. [第三卷·质数王朝志](/zh/books/goldbach/articles/161936785)
-4. [第四卷·形变归元录](/zh/books/math/articles/161952588)
-5. [第五卷·方程兵器谱](/zh/books/shushu/articles/161949130)
-6. [第六卷·量天尺传奇](/zh/books/math/articles/161952194)
-7. [第七卷·流韵万象录](/zh/books/goldbach/articles/161952277)
-8. [第八卷·大道归一录](/zh/books/math/articles/161985690)
+1. [第一卷·泛函套娃录](/zh/books/math/articles/161954834/)
+2. [第二卷·天命赌坊录](/zh/books/shushu/articles/161902148/)
+3. [第三卷·质数王朝志](/zh/books/goldbach/articles/161936785/)
+4. [第四卷·形变归元录](/zh/books/math/articles/161952588/)
+5. [第五卷·方程兵器谱](/zh/books/shushu/articles/161949130/)
+6. [第六卷·量天尺传奇](/zh/books/math/articles/161952194/)
+7. [第七卷·流韵万象录](/zh/books/goldbach/articles/161952277/)
+8. [第八卷·大道归一录](/zh/books/math/articles/161985690/)
 
 ## 博文归档
 
