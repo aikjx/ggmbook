@@ -2,8 +2,8 @@ import { defineConfig } from 'vitepress'
 import katex from '@iktakahiro/markdown-it-katex'
 
 export default defineConfig({
-  title: '全域数学',
-  description: '人类全部知识·全域数学统一学习总纲 Ω终版',
+  title: '乖乖数学《全域数学》',
+  description: '《全域数学》作者：乖乖数学',
   srcExclude: ['aa/**'],
   ignoreDeadLinks: true,
   vite: {
@@ -22,8 +22,8 @@ export default defineConfig({
   locales: {
     '/': {
       lang: 'zh-CN',
-      title: '全域数学',
-      description: '人类全部知识·全域数学统一学习总纲 Ω终版'
+      title: '乖乖数学《全域数学》',
+      description: '《全域数学》作者：乖乖数学'
     },
     '/en/': {
       lang: 'en-US',

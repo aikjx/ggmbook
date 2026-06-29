@@ -1,5 +1,27 @@
 # 全域数学
 
+<div class="gg-hero">
+  <p class="gg-kicker">乖乖数学 · 核心理论</p>
+  <h1 class="gg-title">《全域数学》</h1>
+  <p class="gg-meta">作者：乖乖数学</p>
+  <p class="gg-summary">本页聚焦《全域数学》的主线内容，涵盖公理体系、常数本源、计算实践、密码安全与跨学科应用，并保留归档文章入口。</p>
+</div>
+
+<div class="gg-grid">
+  <a class="gg-card" href="./articles/">
+    <h3>博文归档</h3>
+    <p>查看与《全域数学》相关的专题文章与历史资料。</p>
+  </a>
+  <a class="gg-card" href="../course/">
+    <h3>延伸课程</h3>
+    <p>前往“文明进阶200讲”查看体系化课程内容。</p>
+  </a>
+  <a class="gg-card" href="../">
+    <h3>返回书籍总览</h3>
+    <p>回到书籍总入口，切换其他主题与研究方向。</p>
+  </a>
+</div>
+
 ## 核心理论层
 
 ### 0-1-∞三相公理
@@ -97,5 +119,5 @@ $$G_{\mu\nu} + \Lambda g_{\mu\nu} = \frac{8\pi G}{c^4} T_{\mu\nu}$$
 
 已自动接入本书相关 CSDN 备份文章，可在线阅读归档内容。
 
-- [进入全域数学博文归档](/zh/books/math/articles/)
-- [返回 CSDN 博文总入口](/zh/books/articles/)
+- [进入全域数学博文归档](./articles/)
+- [返回 CSDN 博文总入口](../articles/)

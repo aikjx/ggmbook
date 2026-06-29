@@ -1,6 +1,26 @@
 # 全域数学
 
-> 人类全部知识·全域数学统一学习总纲 Ω终版
+<div class="gg-hero">
+  <p class="gg-kicker">乖乖数学 · 中文首页</p>
+  <h1 class="gg-title">《全域数学》</h1>
+  <p class="gg-meta">作者：乖乖数学</p>
+  <p class="gg-summary">这里汇集《全域数学》的核心理论、专题书籍、课程体系与归档文章，适合作为中文读者的统一起点。</p>
+</div>
+
+<div class="gg-grid">
+  <a class="gg-card" href="./books/math/">
+    <h3>核心理论</h3>
+    <p>进入《全域数学》主线结构，快速查看总纲与重点模块。</p>
+  </a>
+  <a class="gg-card" href="./books/">
+    <h3>书籍总览</h3>
+    <p>按书籍入口浏览全站主要内容版块与专题分区。</p>
+  </a>
+  <a class="gg-card" href="./books/articles/">
+    <h3>博文归档</h3>
+    <p>查看已接入站点的 CSDN 文章归档与收录列表。</p>
+  </a>
+</div>
 
 ## 欢迎来到全域数学
 
@@ -22,15 +42,13 @@
 
 ### 📖 开始探索
 
-- [全域数学](books/math/) - 核心理论体系
-- [哥德巴赫猜想](books/goldbach/) - 数论研究
-- [数术工坊](books/shushu/) - 传统文化数学
-- [文明进阶200讲](books/course/) - 系统课程
+- [全域数学](./books/math/) - 核心理论体系
+- [哥德巴赫猜想](./books/goldbach/) - 数论研究
+- [数术工坊](./books/shushu/) - 传统文化数学
+- [文明进阶200讲](./books/course/) - 系统课程
 
 ### 🌐 语言切换
 
 - [English](../en/)
 
----
-
-> 全域数学 - 让数学成为探索宇宙的钥匙
+> 《全域数学》作者：乖乖数学

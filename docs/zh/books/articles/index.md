@@ -1,5 +1,12 @@
 # CSDN博文归档
 
+<div class="gg-hero">
+  <p class="gg-kicker">乖乖数学 · 归档入口</p>
+  <h1 class="gg-title">《全域数学》专题归档</h1>
+  <p class="gg-meta">作者：乖乖数学</p>
+  <p class="gg-summary">集中展示已接入站点的归档文章，并按主题书籍分流，方便从总入口快速进入对应专题。</p>
+</div>
+
 已将 `docs/aa/CSDN博文备份` 自动分析并分流到不同书籍目录，可在站点内直接阅读。
 
 ## 分类入口
