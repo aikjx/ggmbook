@@ -1,13 +1,17 @@
 {
-  "name": "vitepress-project",
+  "name": "ggbook",
   "private": true,
   "type": "module",
   "scripts": {
     "dev": "vitepress dev docs",
     "build": "vitepress build docs",
+    "preview": "vitepress serve docs",
     "serve": "vitepress serve docs",
-    "archive:build": "python docs/books/build_csdn_archives.py",
-    "archive:purge": "python docs/books/build_csdn_archives.py --purge"
+    "archive:build": "python scripts/archives/build_csdn_archives.py",
+    "archive:build:clean": "python scripts/archives/build_csdn_archives.py --purge",
+    "archive:purge": "python scripts/archives/build_csdn_archives.py --purge",
+    "archive:rebuild": "python scripts/archives/archive_rebuild.py",
+    "archive:localize-images": "python scripts/archives/archive_localize_images.py --purge-assets"
   },
   "devDependencies": {
     "vitepress": "1.0.0-alpha.28",

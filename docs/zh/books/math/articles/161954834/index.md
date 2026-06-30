@@ -18,13 +18,13 @@ title: "数术江湖全卷合集-硬核江湖数理史诗"
 
 ---
 
-![image](https://i-blog.csdnimg.cn/img_convert/56aaacf8a0072dab016d85ef00213c8e.jpeg)
+![image](./assets/csdnimg/jpg/38dedb20f5b6c36b.jpg)
 
 ---
 
 ### 总序：数术江湖的规矩
 
-![image](https://i-blog.csdnimg.cn/img_convert/5611f20eeae16411a22d123f10d91429.jpeg)
+![image](./assets/csdnimg/jpg/e3a625fd7ce7227d.jpg)
 
 长安东市的 “数术工坊” 开了三百年，牌匾下总挂着三把工具：
 
@@ -48,6 +48,7 @@ title: "数术江湖全卷合集-硬核江湖数理史诗"
 
 ---
 
+<a id="vol1"></a>
 ## 第一卷：泛函套娃录
 
 核心隐喻：套娃 = 无穷维空间，算子 = 开娃的手 / 棱镜 / 机器，泛函 = 流水线质检 / 摄影影子
@@ -56,7 +57,7 @@ title: "数术江湖全卷合集-硬核江湖数理史诗"
 
 ### 楔子：套娃幽谷
 
-![image](https://i-blog.csdnimg.cn/img_convert/6f6e6628dfbdfe48b4305906c2eadef5.jpeg)
+![image](./assets/csdnimg/jpg/c34910062bb5bb10.jpg)
 
 阿数第一次走进工坊后院，满目皆是套娃。小的细如米粒，大的壮如磨盘，层层嵌套，无穷无尽。
 
@@ -72,7 +73,7 @@ title: "数术江湖全卷合集-硬核江湖数理史诗"
 
 ### 第一章：套娃本源（定义篇）
 
-![image](https://i-blog.csdnimg.cn/img_convert/fd5e979891ec9d774e36464d5957c34f.jpeg)
+![image](./assets/csdnimg/jpg/cf1c17742f936a72.jpg)
 
 师傅铺开《泛函定义篇》，纸上绘出三种 “开娃之手”，对应三类算子：
 
@@ -96,7 +97,7 @@ title: "数术江湖全卷合集-硬核江湖数理史诗"
 
 ### 第二章：非欧摄影（摄影篇）
 
-![image](https://i-blog.csdnimg.cn/img_convert/ed288a03e29d01485e24c6615b4fd1b2.jpeg)
+![image](./assets/csdnimg/jpg/eae582924cb35cd7.jpg)
 
 师傅领着阿数行至谷底，一面弧度奇特的古铜镜立在其间。
 
@@ -114,7 +115,7 @@ title: "数术江湖全卷合集-硬核江湖数理史诗"
 
 ### 第三章：流水线公理（流水线篇）
 
-![image](https://i-blog.csdnimg.cn/img_convert/ad82e6ed1dc0d5b5116ad854d582dbff.jpeg)
+![image](./assets/csdnimg/jpg/a818fa7a88828f3a.jpg)
 
 师傅将套娃移入工坊，搭建起一条蜿蜒的传送带。
 
@@ -144,7 +145,7 @@ title: "数术江湖全卷合集-硬核江湖数理史诗"
 
 ### 第四章：巴拿赫不动点（定理篇）
 
-![image](https://i-blog.csdnimg.cn/img_convert/a4f4dff7e0d12c0b55f4c82a644cdd91.jpeg)
+![image](./assets/csdnimg/jpg/368dc05619246210.jpg)
 
 师傅取出一串尺寸逐层缩小的套娃，放置在凹面镜前方。
 
@@ -164,7 +165,7 @@ title: "数术江湖全卷合集-硬核江湖数理史诗"
 
 ### 第一卷尾声：西去西域
 
-![image](https://i-blog.csdnimg.cn/img_convert/b77071dbec4c530b339f2252686c8ed5.jpeg)
+![image](./assets/csdnimg/jpg/24d946317c1b7259.jpg)
 
 阿数背起泛函书稿，怀揣师傅赠予的射灯，辞别数术工坊。
 
@@ -188,13 +189,14 @@ title: "数术江湖全卷合集-硬核江湖数理史诗"
 
 ---
 
+<a id="vol2"></a>
 ## 第二卷：天命赌坊录
 
 ---
 
 ### 第一章 天地无定，皆是骰子
 
-![image](https://i-blog.csdnimg.cn/img_convert/2834109b7933bb1bb0ae4bef9fb0c669.jpeg)
+![image](./assets/csdnimg/jpg/4d5768a9b00af6ef.jpg)
 
 第一卷泛函大道落幕。
 
@@ -310,7 +312,7 @@ title: "数术江湖全卷合集-硬核江湖数理史诗"
 
 ### 第二章 大数戒律，久赌必输是天道公平
 
-![image](https://i-blog.csdnimg.cn/img_convert/dccbdf92d78577d571ac99bad4c1cee7.jpeg)
+![image](./assets/csdnimg/jpg/522c58446c907dfd.jpg)
 
 阿数入坊，万千骰子悬空震颤。
 
@@ -400,7 +402,7 @@ title: "数术江湖全卷合集-硬核江湖数理史诗"
 
 #### 第二章番外・六道赌境（全卷核心人设体系）
 
-![image](https://i-blog.csdnimg.cn/img_convert/1d8ce0644d0eb51287b39d4eaa8ac8ad.jpeg)
+![image](./assets/csdnimg/jpg/9bb30128ecc0121b.jpg)
 
 师傅继而揭示：概率不变，规则不变，唯人心境界分天地。
 
@@ -476,7 +478,7 @@ title: "数术江湖全卷合集-硬核江湖数理史诗"
 
 ### 第三章 钟形江湖，万象终归正态
 
-![image](https://i-blog.csdnimg.cn/img_convert/0602133f259d9dcd7a4b9fac0b50bce2.jpeg)
+![image](./assets/csdnimg/jpg/3bdaf1435e2a2fbd.jpg)
 
 大数已定终局。
 
@@ -548,7 +550,7 @@ title: "数术江湖全卷合集-硬核江湖数理史诗"
 
 ### 第四章 贝叶斯追凶，旧念尽随新证消
 
-![image](https://i-blog.csdnimg.cn/img_convert/e524565ac1c3050ac47999794aeb276e.jpeg)
+![image](./assets/csdnimg/jpg/f2c7097c51192590.jpg)
 
 正态形态圆满。
 
@@ -648,7 +650,7 @@ title: "数术江湖全卷合集-硬核江湖数理史诗"
 
 ### 第五章 方差浮沉，命有稳乱运有疾风
 
-![image](https://i-blog.csdnimg.cn/img_convert/9e3d7e50e7dcff6372e4fb61b8a9606d.jpeg)
+![image](./assets/csdnimg/jpg/0e41d0e3bd8137ea.jpg)
 
 阿数已懂：
 
@@ -710,7 +712,7 @@ title: "数术江湖全卷合集-硬核江湖数理史诗"
 
 ### 第六章 离合因缘，独立相依辨尘缘
 
-![image](https://i-blog.csdnimg.cn/img_convert/9a659c97a1467b3d1049d8ce3b8cb36e.jpeg)
+![image](./assets/csdnimg/jpg/8e9f61e9d25c34a0.jpg)
 
 概率单体之道已圆满，
 
@@ -838,7 +840,7 @@ title: "数术江湖全卷合集-硬核江湖数理史诗"
 
 ### 第八章 终章・天命抉择，期望定人生路
 
-![image](https://i-blog.csdnimg.cn/img_convert/3214078dce44047afc504121f4b1db8e.jpeg)
+![image](./assets/csdnimg/jpg/f6ce171f2b29cb03.jpg)
 
 概率八法，前七皆成。
 
@@ -974,13 +976,14 @@ title: "数术江湖全卷合集-硬核江湖数理史诗"
 
 ---
 
+<a id="vol3"></a>
 ## 第三卷：质数王朝志
 
 ---
 
 ### 卷首引
 
-![image](https://i-blog.csdnimg.cn/img_convert/45ce36d3d041cb71a3d4db3dd50d8d1f.jpeg)
+![image](./assets/csdnimg/jpg/c9525dec5f4b1a8f.jpg)
 
 第二卷天命赌坊落幕，骰子停转，概率归寂。
 
@@ -1026,7 +1029,7 @@ title: "数术江湖全卷合集-硬核江湖数理史诗"
 
 ### 第一章 王族本源，一体不摧定乾坤
 
-![image](https://i-blog.csdnimg.cn/img_convert/bdfd3b120f633ddfc5b8549ad0b525a3.jpeg)
+![image](./assets/csdnimg/jpg/c2286de98b06d412.jpg)
 
 踏入质数王朝城门，一股沉凝厚重的气息扑面而来。
 
@@ -1124,7 +1127,7 @@ title: "数术江湖全卷合集-硬核江湖数理史诗"
 
 ### 第二章 姻缘古台，哥德巴赫千年婚约
 
-![image](https://i-blog.csdnimg.cn/img_convert/b77aa90a9ff4cbcb096449dcabec0b8d.jpeg)
+![image](./assets/csdnimg/jpg/bf1b225c7b787f77.jpg)
 
 辞别王族本源殿，阿数随乖乖师傅穿行在王城腹地。沿途灵体光影流转，合数灵团交错相融，唯独质数王族灵辉孤高自持，各行其道，互不沾染。
 
@@ -1214,7 +1217,7 @@ title: "数术江湖全卷合集-硬核江湖数理史诗"
 
 ### 第三章：幽陵秘图，黎曼隐脉定族运
 
-![image](https://i-blog.csdnimg.cn/img_convert/a539e01fdbc76fd0130f691d169d619c.jpeg)
+![image](./assets/csdnimg/jpg/ec9d56da7494d39e.jpg)
 
 姻缘台的成双灵影缓缓归寂，千年婚约的余韵仍飘荡在王城上空。
 
@@ -1450,7 +1453,7 @@ RSA 质数护国玄阵！"
 
 ### 总跋
 
-![image](https://i-blog.csdnimg.cn/img_convert/6faa1482361f6477e0e874f8f81b0efa.jpeg)
+![image](./assets/csdnimg/jpg/02fd8750ffec7991.jpg)
 
 数术江湖，无穷无尽。
 

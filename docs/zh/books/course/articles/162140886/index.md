@@ -10,7 +10,7 @@ title: "交换不是永远成立简单加法只是特例-全域数学vs传统数
 > 原始文件：`交换不是永远成立简单加法只是特例-全域数学vs传统数学人类文明进阶200讲第2讲-162140886.md`  
 > 返回：[本书归档](/zh/books/course/articles/) · [总入口](/zh/books/articles/)
 
-![第2讲 封面](https://i-blog.csdnimg.cn/img_convert/3b191510b96a98e153b1c4b2cdbd5f4e.jpeg)
+![第2讲 封面](./assets/csdnimg/jpg/cf51ba756dc1ab90.jpg)
 
 ## 《全域数学vs传统数学：人类文明进阶200讲》第2讲
 
@@ -26,7 +26,7 @@ title: "交换不是永远成立简单加法只是特例-全域数学vs传统数
 
 ### 【0-3分钟 复习导入，衔接上节课】
 
-![数字双山路生长示意图](https://i-blog.csdnimg.cn/img_convert/9f676cece5e795ef0bc6ae894c1d6e76.jpeg)
+![数字双山路生长示意图](./assets/csdnimg/jpg/f10ac7d91115b003.jpg)
 
 各位同学，咱们上节课知道了：数字不是一条直线排队，而是从 111 出发，两条小路一起往上长，一条原生质数、一条组合合数。
 
@@ -40,7 +40,7 @@ title: "交换不是永远成立简单加法只是特例-全域数学vs传统数
 
 ### 【3-13分钟 生活化小故事类比，零难懂词汇】
 
-![平地搭积木交换示意图](https://i-blog.csdnimg.cn/img_convert/2f34f05bf32633ef894e63920d473cb0.jpeg)
+![平地搭积木交换示意图](./assets/csdnimg/jpg/3af4223841da6e66.jpg)
 
 拿搭积木举例子，对应咱们数字两条山路：
 
@@ -50,7 +50,7 @@ title: "交换不是永远成立简单加法只是特例-全域数学vs传统数
 
 这是低阶、简单的情况，两条山路还没分开，挨得很近，谁先谁后看不出差别。
 
-![两条数字山路对比图](https://i-blog.csdnimg.cn/img_convert/e286d155aaacd6b3841b34b437da07b6.jpeg)
+![两条数字山路对比图](./assets/csdnimg/jpg/d82ebd1055007a1c.jpg)
 
 场景2：咱们顺着两条山路往高处走，一边是原生数字 333，一边是组合数字 999。
 
@@ -68,7 +68,7 @@ title: "交换不是永远成立简单加法只是特例-全域数学vs传统数
 
 ### 【13-22分钟 简单对比，只用小学现有知识】
 
-![传统数学与全域数学对比](https://i-blog.csdnimg.cn/img_convert/11591a454d976a39cb5648b1f75cdca9.jpeg)
+![传统数学与全域数学对比](./assets/csdnimg/jpg/0e7e2bb2bb0e84ca.jpg)
 
 传统课本观点
 
@@ -94,7 +94,7 @@ title: "交换不是永远成立简单加法只是特例-全域数学vs传统数
 
 课本规则是"简化工具"，不是数字本来的生长规律
 
-![登山路径顺序隐喻](https://i-blog.csdnimg.cn/img_convert/bbfe8f863069e7dbd0ab214bb68c8596.jpeg)
+![登山路径顺序隐喻](./assets/csdnimg/jpg/b5af9316e9f8cb7c.jpg)
 
 举个好理解的比喻：
 
@@ -120,7 +120,7 @@ title: "交换不是永远成立简单加法只是特例-全域数学vs传统数
 
 ### 【27-30分钟 课堂总结+下节课预告】
 
-![九九乘法表结构投影预告](https://i-blog.csdnimg.cn/img_convert/7b27b0d48d81b86e4728c45c5c4850b3.jpeg)
+![九九乘法表结构投影预告](./assets/csdnimg/jpg/3347c52ef367004f.jpg)
 
 今日小结：
 
@@ -132,4 +132,4 @@ title: "交换不是永远成立简单加法只是特例-全域数学vs传统数
 
 ---
 
-![第2讲 结尾画面](https://i-blog.csdnimg.cn/img_convert/ff705725b97b8116f20b3b189d6beaf0.jpeg)
+![第2讲 结尾画面](./assets/csdnimg/jpg/959fdae8ee394a0b.jpg)
