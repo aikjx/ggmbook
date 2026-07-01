@@ -5,9 +5,9 @@
   <h2 class="gg-course-hero-title">文明进阶200讲</h2>
   <p class="gg-course-hero-text">按讲次整理成分段目录，适合从首页快速进入具体文章阅读。</p>
   <div class="gg-stat-grid">
-    <div class="gg-stat-card"><span class="gg-stat-label">已上线文章</span><strong class="gg-stat-value">49</strong></div>
-    <div class="gg-stat-card"><span class="gg-stat-label">当前整理范围</span><strong class="gg-stat-value">第1-50讲</strong></div>
-    <div class="gg-stat-card"><span class="gg-stat-label">待补章节</span><strong class="gg-stat-value">第48讲</strong></div>
+    <div class="gg-stat-card"><span class="gg-stat-label">已上线文章</span><strong class="gg-stat-value">57</strong></div>
+    <div class="gg-stat-card"><span class="gg-stat-label">当前整理范围</span><strong class="gg-stat-value">第1-62讲</strong></div>
+    <div class="gg-stat-card"><span class="gg-stat-label">待补章节</span><strong class="gg-stat-value">第48、第53、第54、第56、第58、第59、第61讲</strong></div>
   </div>
   <div class="gg-course-actions">
     <a class="gg-action-button" href="/zh/books/course/">返回课程首页</a>
@@ -23,6 +23,8 @@
   <a class="gg-chip" href="#lecture-021-030">第21-30讲</a>
   <a class="gg-chip" href="#lecture-031-040">第31-40讲</a>
   <a class="gg-chip" href="#lecture-041-050">第41-50讲</a>
+  <a class="gg-chip" href="#lecture-051-060">第51-60讲</a>
+  <a class="gg-chip" href="#lecture-061-062">第61-62讲</a>
 </div>
 
 ## 快速进入
@@ -171,7 +173,7 @@
       <strong>负数不只是比0小的数字是双螺旋左右两条山路的对称反向脉络</strong>
       <span class="gg-lecture-note">点击进入文章</span>
     </a>
-    <a class="gg-lecture-card" href="/zh/books/course/articles/162189522/">
+    <a class="gg-lecture-card" href="/zh/books/course/articles/162118782/">
       <span class="gg-lecture-badge">第25讲</span>
       <strong>为什么课本里112只是浅层表象真实本质是0基点双螺旋同源分化迭代</strong>
       <span class="gg-lecture-note">点击进入文章</span>
@@ -290,7 +292,7 @@
       <strong>一次不等式不是范围限制算式是双螺旋生长轨迹在零基准单侧延伸的区间形态</strong>
       <span class="gg-lecture-note">点击进入文章</span>
     </a>
-    <a class="gg-lecture-card" href="/zh/books/course/articles/162348051/">
+    <a class="gg-lecture-card" href="/zh/books/course/articles/162282142/">
       <span class="gg-lecture-badge">第45讲</span>
       <strong>平移旋转轴对称三大图形变换对应双螺旋延伸环绕对称三类原生运动形态</strong>
       <span class="gg-lecture-note">点击进入文章</span>
@@ -318,6 +320,86 @@
     <a class="gg-lecture-card" href="/zh/books/course/articles/162348291/">
       <span class="gg-lecture-badge">第50讲</span>
       <strong>全部中学数理统一溯源所有公式图形函数回归0-1-无限三极本源双螺旋闭环</strong>
+      <span class="gg-lecture-note">点击进入文章</span>
+    </a>
+  </div>
+</section>
+
+<section class="gg-lecture-section" id="lecture-051-060">
+  <div class="gg-lecture-head">
+    <div><h2>第51-60讲</h2><p>适合按章节顺序连续阅读。</p></div>
+    <div class="gg-lecture-summary">已上线 5 / 10</div>
+  </div>
+  <p class="gg-lecture-missing">待补：第53讲、第54讲、第56讲、第58讲、第59讲</p>
+  <div class="gg-lecture-grid">
+    <a class="gg-lecture-card" href="/zh/books/course/articles/162348332/">
+      <span class="gg-lecture-badge">第51讲</span>
+      <strong>导数不是瞬时变化率计算公式是双螺旋生长轨迹局部微小分层的瞬时演化斜率</strong>
+      <span class="gg-lecture-note">点击进入文章</span>
+    </a>
+    <a class="gg-lecture-card" href="/zh/books/course/articles/162348379/">
+      <span class="gg-lecture-badge">第52讲</span>
+      <strong>微分不是微小差值近似是剥离宏观螺旋单独提取无穷小微观生长单元的原生尺度</strong>
+      <span class="gg-lecture-note">点击进入文章</span>
+    </a>
+    <div class="gg-lecture-card is-missing">
+      <span class="gg-lecture-badge">第53讲</span>
+      <strong>待补充</strong>
+      <span class="gg-lecture-note">当前还没有对应文章</span>
+    </div>
+    <div class="gg-lecture-card is-missing">
+      <span class="gg-lecture-badge">第54讲</span>
+      <strong>待补充</strong>
+      <span class="gg-lecture-note">当前还没有对应文章</span>
+    </div>
+    <a class="gg-lecture-card" href="/zh/books/course/articles/162374074/">
+      <span class="gg-lecture-badge">第55讲</span>
+      <strong>数列不是离散数字罗列是双螺旋分层生长分段截取的离散节点序列</strong>
+      <span class="gg-lecture-note">点击进入文章</span>
+    </a>
+    <div class="gg-lecture-card is-missing">
+      <span class="gg-lecture-badge">第56讲</span>
+      <strong>待补充</strong>
+      <span class="gg-lecture-note">当前还没有对应文章</span>
+    </div>
+    <a class="gg-lecture-card" href="/zh/books/course/articles/162374194/">
+      <span class="gg-lecture-badge">第57讲</span>
+      <strong>立体几何三维空间不是纸面三维绘图是0基点分化x-y-z三轴三组正交双螺旋交织形成的三维生长场域-全域</strong>
+      <span class="gg-lecture-note">点击进入文章</span>
+    </a>
+    <div class="gg-lecture-card is-missing">
+      <span class="gg-lecture-badge">第58讲</span>
+      <strong>待补充</strong>
+      <span class="gg-lecture-note">当前还没有对应文章</span>
+    </div>
+    <div class="gg-lecture-card is-missing">
+      <span class="gg-lecture-badge">第59讲</span>
+      <strong>待补充</strong>
+      <span class="gg-lecture-note">当前还没有对应文章</span>
+    </div>
+    <a class="gg-lecture-card" href="/zh/books/course/articles/162374367/">
+      <span class="gg-lecture-badge">第60讲</span>
+      <strong>排列组合不是计数枚举技巧是多条独立双螺旋生长节点交叉匹配的天然组合频次</strong>
+      <span class="gg-lecture-note">点击进入文章</span>
+    </a>
+  </div>
+</section>
+
+<section class="gg-lecture-section" id="lecture-061-062">
+  <div class="gg-lecture-head">
+    <div><h2>第61-62讲</h2><p>适合按章节顺序连续阅读。</p></div>
+    <div class="gg-lecture-summary">已上线 1 / 2</div>
+  </div>
+  <p class="gg-lecture-missing">待补：第61讲</p>
+  <div class="gg-lecture-grid">
+    <div class="gg-lecture-card is-missing">
+      <span class="gg-lecture-badge">第61讲</span>
+      <strong>待补充</strong>
+      <span class="gg-lecture-note">当前还没有对应文章</span>
+    </div>
+    <a class="gg-lecture-card" href="/zh/books/course/articles/162374608/">
+      <span class="gg-lecture-badge">第62讲</span>
+      <strong>随机变量与分布不是概率数字表格是双螺旋长期生长节点分层归类后的稳定区间频次图谱</strong>
       <span class="gg-lecture-note">点击进入文章</span>
     </a>
   </div>

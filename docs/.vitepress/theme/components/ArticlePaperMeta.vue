@@ -1,4 +1,6 @@
 <script setup lang="ts">
+import { computed } from 'vue'
+
 const props = defineProps<{
   category: string
   articleId: string
@@ -17,6 +19,13 @@ const props = defineProps<{
   bookRoute: string
   overviewRoute: string
 }>()
+
+const localCover = computed(() => {
+  if (!props.cover) {
+    return ''
+  }
+  return props.cover.startsWith('./assets/') ? props.cover : ''
+})
 
 function buildMetaRows() {
   return [
@@ -56,8 +65,8 @@ function buildMetaRows() {
       </div>
     </div>
 
-    <div v-if="cover" class="gg-paper-cover">
-      <img :src="cover" :alt="title" />
+    <div v-if="localCover" class="gg-paper-cover">
+      <img :src="localCover" :alt="title" />
     </div>
   </section>
 </template>

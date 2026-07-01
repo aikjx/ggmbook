@@ -1,6 +1,22 @@
 from __future__ import annotations
 
-import build_csdn_archives as archives
+import importlib.util
+from pathlib import Path
+import sys
+
+
+def load_archives_module():
+    module_path = Path(__file__).resolve().with_name("build_csdn_archives.py")
+    spec = importlib.util.spec_from_file_location("build_csdn_archives_impl", module_path)
+    if spec is None or spec.loader is None:
+        raise RuntimeError(f"无法加载归档脚本：{module_path}")
+    module = importlib.util.module_from_spec(spec)
+    sys.modules[spec.name] = module
+    spec.loader.exec_module(module)
+    return module
+
+
+archives = load_archives_module()
 
 
 def collect_existing_ids() -> list[str]:
@@ -27,7 +43,7 @@ def main() -> None:
         limit=None,
         only_ids=only_ids,
         download_images=False,
-        purge=False,
+        purge=True,
         progress_every=20,
     )
 

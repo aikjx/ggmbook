@@ -3,6 +3,8 @@
 ## 总规范
 
 - [ARCHITECTURE.md](./ARCHITECTURE.md)：项目目录、脚本入口、构建与发布规范
+- [ENGINEERING_WORKFLOW.md](./ENGINEERING_WORKFLOW.md)：环境安装、执行命令、审核发布、复盘优化的总工作流手册
+- [MEDIA_WORKFLOW.md](./MEDIA_WORKFLOW.md)：图片、视频、音频、封面的下载、转码、引用与验收规范
 
 ## 流程文档
 

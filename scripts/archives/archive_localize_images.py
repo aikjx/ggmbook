@@ -25,6 +25,11 @@ REMOTE_IMAGE_PATTERN = re.compile(
     re.IGNORECASE | re.MULTILINE,
 )
 
+REMOTE_COMPONENT_PATTERN = re.compile(
+    r"\b(?:cover|poster)=['\"](?:https?://|//)[^'\"]+['\"]",
+    re.IGNORECASE | re.MULTILINE,
+)
+
 
 def iter_markdown_files(root: Path) -> list[Path]:
     return sorted(path for path in root.rglob("index.md") if path.is_file())
@@ -53,8 +58,18 @@ def parse_generated_article_page(content: str) -> tuple[object, str, str, str] |
     if len(lines) < 5:
         return None
 
-    category_match = re.match(r"^> 分类：(.+?)\s{2,}$", lines[0].strip())
-    original_match = re.match(r"^> 原始文件：`(.+)`\s{2,}$", lines[2].strip())
+    category_match = None
+    original_match = None
+    metadata_end = 0
+    for idx, line in enumerate(lines):
+        stripped = line.strip()
+        if category_match is None:
+            category_match = re.match(r"^> 分类：(.+)$", stripped)
+        if original_match is None:
+            original_match = re.match(r"^> 原始文件：`(.+)`$", stripped)
+        if category_match and original_match and not stripped:
+            metadata_end = idx + 1
+            break
     if not category_match or not original_match:
         return None
 
@@ -63,13 +78,13 @@ def parse_generated_article_page(content: str) -> tuple[object, str, str, str] |
     if category is None:
         return None
 
-    content_start = 0
-    for idx, line in enumerate(lines):
-        if not line.strip():
-            content_start = idx + 1
-            break
+    article_lines = lines[metadata_end:]
+    if article_lines and article_lines[0].strip().startswith("<ArticlePaperMeta "):
+        article_lines = article_lines[1:]
+        while article_lines and not article_lines[0].strip():
+            article_lines = article_lines[1:]
 
-    article_content = "\n".join(lines[content_start:]).strip()
+    article_content = "\n".join(article_lines).strip()
     return category, article_id, original_match.group(1).strip(), article_content
 
 
@@ -81,7 +96,7 @@ def localize_file(
     purge_assets: bool,
 ) -> tuple[bool, int, int]:
     original = markdown_path.read_text(encoding="utf-8")
-    if not REMOTE_IMAGE_PATTERN.search(original):
+    if not REMOTE_IMAGE_PATTERN.search(original) and not REMOTE_COMPONENT_PATTERN.search(original):
         return False, 0, 0
 
     assets_root = markdown_path.parent / "assets"

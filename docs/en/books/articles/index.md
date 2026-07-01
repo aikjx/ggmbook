@@ -6,11 +6,11 @@ The articles from `docs/aa/CSDN博文备份` are automatically classified into b
 
 | Book | Articles | Archive |
 | --- | ---: | --- |
-| Universal Mathematics | 2 | [Open Chinese Archive](/zh/books/math/articles/) |
-| Goldbach Conjecture | 0 | [Open Chinese Archive](/zh/books/goldbach/articles/) |
-| Shushu Workshop | 0 | [Open Chinese Archive](/zh/books/shushu/articles/) |
-| Civilization Course | 49 | [Open Chinese Archive](/zh/books/course/articles/) |
-| **Total** | **51** | - |
+| Universal Mathematics | 33 | [Open Chinese Archive](/zh/books/math/articles/) |
+| Goldbach Conjecture | 40 | [Open Chinese Archive](/zh/books/goldbach/articles/) |
+| Shushu Workshop | 19 | [Open Chinese Archive](/zh/books/shushu/articles/) |
+| Civilization Course | 57 | [Open Chinese Archive](/zh/books/course/articles/) |
+| **Total** | **149** | - |
 
 ## Notes
 

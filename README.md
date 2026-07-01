@@ -10,6 +10,12 @@
 
 ## 快速开始
 
+环境要求：
+
+- Node.js `20+`
+- pnpm `9+`
+- Python `3.8+`
+
 ```bash
 pnpm install
 pnpm dev --host 127.0.0.1 --port 8081
@@ -44,5 +50,7 @@ pnpm run archive:localize-images
 
 - 文档索引：[INDEX.md](project_docs/INDEX.md)
 - 架构主文档：[ARCHITECTURE.md](project_docs/ARCHITECTURE.md)
+- 总工作流：[ENGINEERING_WORKFLOW.md](project_docs/ENGINEERING_WORKFLOW.md)
+- 媒体规范：[MEDIA_WORKFLOW.md](project_docs/MEDIA_WORKFLOW.md)
 - 开源与合规：[OPEN_SOURCE.md](project_docs/OPEN_SOURCE.md)
 

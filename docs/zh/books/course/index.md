@@ -67,6 +67,34 @@
 - 去重处理：第 25 讲与第 45 讲保留较新版本
 - 阅读建议：优先从课程目录页进入，再按分段卡片顺序连续阅读
 
+## 文章与讲义展示
+
+<div class="gg-paper-grid">
+  <a class="gg-paper-card" href="./articles/162123493/">
+    <div class="gg-paper-card-header">
+      <span class="gg-paper-badge">第1讲</span>
+      <span class="gg-paper-badge">课程讲义</span>
+    </div>
+    <h3>数字不是排队排出来的是两条长龙一起长出来的</h3>
+    <p>适合作为整套课程的第一篇样板，展示课程讲义、封面、元信息和正文编排方式。</p>
+  </a>
+  <a class="gg-paper-card" href="./articles/162249132/">
+    <div class="gg-paper-card-header">
+      <span class="gg-paper-badge">第41讲</span>
+      <span class="gg-paper-badge">概率</span>
+    </div>
+    <h3>概率不是随机猜测数值</h3>
+    <p>展示课程中后段的概念论证方式，适合作为“中学主线”代表文章入口。</p>
+  </a>
+  <a class="gg-paper-card" href="./articles/">
+    <div class="gg-paper-card-header">
+      <span class="gg-paper-badge">完整目录</span>
+    </div>
+    <h3>全部课程讲义</h3>
+    <p>按讲次连续展示全部课程文章，适合系统化学习与连续阅读。</p>
+  </a>
+</div>
+
 ## 课程阅读路线
 
 <div class="gg-grid">

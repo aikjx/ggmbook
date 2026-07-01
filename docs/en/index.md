@@ -10,10 +10,10 @@ This is a knowledge system about Universal Mathematics, containing four core sec
 
 | Category | Description | Articles |
 |----------|-------------|----------|
-| **Universal Math** | Core theory, constant research, applications | 402 |
-| **Goldbach Conjecture** | Number theory research, conjecture proofs | 37 |
-| **Shushu Workshop** | Yijing mathematics, traditional culture | 48 |
-| **Civilization Course** | 200 lectures from basics to advanced | 55 |
+| **Universal Math** | Core theory, constant research, applications | 435 |
+| **Goldbach Conjecture** | Number theory research, conjecture proofs | 40 |
+| **Shushu Workshop** | Yijing mathematics, traditional culture | 18 |
+| **Civilization Course** | 200 lectures from basics to advanced | 57 |
 
 ### 🔬 Two Parallel Classification Systems
 

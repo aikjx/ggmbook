@@ -1,24 +1,69 @@
 # 全域数学
 
-<div class="gg-hero">
-  <p class="gg-kicker">乖乖数学 · 核心理论</p>
-  <h1 class="gg-title">《全域数学》</h1>
-  <p class="gg-meta">作者：乖乖数学</p>
-  <p class="gg-summary">本页聚焦《全域数学》的主线内容，涵盖公理体系、常数本源、计算实践、密码安全与跨学科应用，并保留归档文章入口。</p>
+<div class="gg-course-hero">
+  <p class="gg-kicker">核心理论主干</p>
+  <h2 class="gg-course-hero-title">《全域数学》</h2>
+  <p class="gg-course-hero-text">本页统一承载《全域数学》的理论主线、公式典藏、研究论文入口与延伸课程入口。先看理论结构，再进入文章和课程。</p>
+  <div class="gg-stat-grid">
+    <div class="gg-stat-card">
+      <span class="gg-stat-label">内容类型</span>
+      <strong class="gg-stat-value">理论 / 公式 / 论文</strong>
+    </div>
+    <div class="gg-stat-card">
+      <span class="gg-stat-label">研究方向</span>
+      <strong class="gg-stat-value">统一场 / 常数 / 计算 / 跨学科</strong>
+    </div>
+    <div class="gg-stat-card">
+      <span class="gg-stat-label">阅读入口</span>
+      <strong class="gg-stat-value">本书首页 + 归档论文</strong>
+    </div>
+  </div>
+  <div class="gg-course-actions">
+    <a class="gg-action-button" href="./articles/">进入理论论文归档</a>
+    <a class="gg-action-button is-secondary" href="../course/">查看延伸课程</a>
+  </div>
 </div>
 
-<div class="gg-grid">
-  <a class="gg-card" href="./articles/">
-    <h3>博文归档</h3>
-    <p>查看与《全域数学》相关的专题文章与历史资料。</p>
+## 文章与论文展示
+
+<div class="gg-paper-grid">
+  <a class="gg-paper-card" href="./articles/161157765/">
+    <div class="gg-paper-card-header">
+      <span class="gg-paper-badge">研究论文</span>
+      <span class="gg-paper-badge">磁场 / 引力</span>
+    </div>
+    <h3>磁场与引力维度压缩同源统一理论</h3>
+    <p>展示全域体系下关于磁场、引力、维度压缩与统一理论的论文型文章入口。</p>
+    <div class="gg-paper-card-meta">
+      <span class="gg-paper-meta-chip">全域数学</span>
+      <span class="gg-paper-meta-chip">在线阅读</span>
+    </div>
   </a>
-  <a class="gg-card" href="../course/">
-    <h3>延伸课程</h3>
-    <p>前往“文明进阶200讲”查看体系化课程内容。</p>
+  <a class="gg-paper-card" href="./articles/161954834/">
+    <div class="gg-paper-card-header">
+      <span class="gg-paper-badge">合集正文</span>
+      <span class="gg-paper-badge">数术关联</span>
+    </div>
+    <h3>数术江湖全卷合集</h3>
+    <p>当前承载数术工坊 1-3 卷正文，同时也是跨主题内容编排的重要展示页。</p>
+    <div class="gg-paper-card-meta">
+      <span class="gg-paper-meta-chip">合集入口</span>
+      <span class="gg-paper-meta-chip">稳定落点</span>
+    </div>
   </a>
-  <a class="gg-card" href="../">
+  <a class="gg-paper-card" href="./articles/">
+    <div class="gg-paper-card-header">
+      <span class="gg-paper-badge">归档入口</span>
+    </div>
+    <h3>全部理论归档</h3>
+    <p>查看当前已接入的全域数学文章、研究论文与后续持续归档内容。</p>
+  </a>
+  <a class="gg-paper-card" href="../">
+    <div class="gg-paper-card-header">
+      <span class="gg-paper-badge">返回导航</span>
+    </div>
     <h3>返回书籍总览</h3>
-    <p>回到书籍总入口，切换其他主题与研究方向。</p>
+    <p>切换到课程、数术工坊或哥德巴赫猜想等其它核心作品入口。</p>
   </a>
 </div>
 
