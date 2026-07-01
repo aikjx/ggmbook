@@ -80,8 +80,9 @@ def run_ffmpeg(command: list[str]) -> None:
         )
 
 
-def main() -> None:
-    args = parse_args()
+def main(args: argparse.Namespace | None = None) -> None:
+    if args is None:
+        args = parse_args()
     ffmpeg_bin = ensure_ffmpeg(args.ffmpeg_bin)
     output_dir = Path(args.output_dir).expanduser().resolve()
     video_path, poster_path = ensure_output_paths(output_dir, args.video_name, args.poster_name, args.overwrite)

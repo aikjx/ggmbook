@@ -131,7 +131,7 @@ def localize_file(
     return False, downloaded_count, total_count
 
 
-def main() -> None:
+def main(args: argparse.Namespace | None = None) -> None:
     parser = argparse.ArgumentParser(
         description="为现有 VitePress 页面执行图片本地化，并将远程引用改写为同级 assets 相对路径。"
     )
@@ -147,7 +147,8 @@ def main() -> None:
         action="store_true",
         help="处理前清理目标页面同级 assets 目录，确保输出整洁。",
     )
-    args = parser.parse_args()
+    if args is None:
+        args = parser.parse_args()
 
     targets = [Path(target).resolve() for target in args.targets] or [DOCS_DIR / "zh" / "books"]
     markdown_files: list[Path] = []

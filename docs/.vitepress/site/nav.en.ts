@@ -5,5 +5,6 @@ export const navEn = [
   { text: 'Goldbach', link: '/en/books/goldbach/' },
   { text: 'Shushu', link: '/en/books/shushu/' },
   { text: 'Course', link: '/en/books/course/' },
-  { text: 'CSDN Blogs', link: '/en/books/articles/' }
+  { text: 'CSDN Blogs', link: '/en/books/articles/' },
+  { text: 'Legal', link: '/en/legal/' }
 ]

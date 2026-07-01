@@ -33,7 +33,7 @@ def iter_markdown_files(targets: list[Path]) -> list[Path]:
     return sorted(files)
 
 
-def main() -> None:
+def main(args: argparse.Namespace | None = None) -> None:
     parser = argparse.ArgumentParser(
         description="扫描 Markdown 页面中的远程媒体引用，覆盖图片、视频、音频、封面与媒体链接。"
     )
@@ -47,7 +47,8 @@ def main() -> None:
         action="store_true",
         help="即使发现远程媒体也返回 0，适合纯统计场景。",
     )
-    args = parser.parse_args()
+    if args is None:
+        args = parser.parse_args()
 
     repo_root = Path(__file__).resolve().parents[2]
     default_target = repo_root / "docs" / "zh" / "books"
