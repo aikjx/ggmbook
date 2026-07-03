@@ -7,7 +7,7 @@ import { sidebarZh } from './site/sidebar.zh'
 import { sidebarEn } from './site/sidebar.en'
 
 export default defineConfig({
-  base: '/ggmbook/',
+  base: '/',
   title: siteTitleZh,
   description: siteDescriptionZh,
   srcExclude: ['aa/**'],
