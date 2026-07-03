@@ -12,8 +12,7 @@
     "archive:purge": "python scripts/archives/build_csdn_archives.py --purge",
     "archive:rebuild": "python scripts/archives/archive_rebuild.py",
     "archive:localize-images": "python scripts/archives/archive_localize_images.py --purge-assets",
-    "archive:verify-images": "python scripts/archives/archive_verify_remote_images.py",
-    "archive:verify-media": "python scripts/archives/archive_verify_remote_media.py"
+    "archive:verify-images": "python scripts/archives/archive_verify_remote_images.py"
   },
   "devDependencies": {
     "vitepress": "1.0.0-alpha.28",

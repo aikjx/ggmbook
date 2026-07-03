@@ -7,6 +7,7 @@ import { sidebarZh } from './site/sidebar.zh'
 import { sidebarEn } from './site/sidebar.en'
 
 export default defineConfig({
+  base: '/ggmbook/',
   title: siteTitleZh,
   description: siteDescriptionZh,
   srcExclude: ['aa/**'],
@@ -48,7 +49,7 @@ export default defineConfig({
     ],
     footer: {
       message: 'Copyright 2024-2026 乖乖数学团队. All rights reserved.',
-      copyright: 'Licensed under MIT License. <a href="/zh/legal">法律声明</a> | <a href="/en/legal">Legal Notice</a>'
+      copyright: 'Licensed under MIT License. <a href="./zh/legal">法律声明</a> | <a href="./en/legal">Legal Notice</a>'
     },
     locales: {
       '/': {
