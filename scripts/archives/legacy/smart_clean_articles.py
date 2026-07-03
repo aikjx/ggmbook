@@ -3,7 +3,7 @@ import re
 import codecs
 
 source_dir = r"D:\a10\aikjx\code\my_lib\git\CSDN博文备份"
-books_dir = r"D:\a10\aikjx\gitcode\ggbook\docs\books"
+books_dir = r"D:\a10\aikjx\gitcode\ggmbook\docs\books"
 
 categories = {
     'course': ['全域数学vs传统数学', '人类文明进阶200讲', '第1讲', '第2讲', '第3讲', '第4讲', '第5讲', '第6讲', '第7讲', '第8讲', '第9讲', '第10讲', '第11讲', '第12讲', '第13讲', '第14讲', '第15讲', '第16讲', '第17讲', '第18讲', '第19讲', '第20讲', '第21讲', '第22讲', '第23讲', '第24讲', '第25讲', '第26讲', '第27讲', '第28讲', '第29讲'],

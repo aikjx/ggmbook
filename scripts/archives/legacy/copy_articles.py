@@ -5,7 +5,7 @@ import re
 # 源目录
 source_dir = r"D:\a10\aikjx\code\my_lib\git\CSDN博文备份"
 # 目标目录
-target_dir = r"D:\a10\aikjx\gitcode\ggbook\docs\books"
+target_dir = r"D:\a10\aikjx\gitcode\ggmbook\docs\books"
 
 # 分类规则
 categories = {

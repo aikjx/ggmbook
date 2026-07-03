@@ -1,4 +1,4 @@
-# ggbook
+# ggmbook
 
 全域数学·VitePress 文档站点工程。
 

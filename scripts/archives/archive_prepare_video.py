@@ -87,7 +87,7 @@ def main(args: argparse.Namespace | None = None) -> None:
     output_dir = Path(args.output_dir).expanduser().resolve()
     video_path, poster_path = ensure_output_paths(output_dir, args.video_name, args.poster_name, args.overwrite)
 
-    with tempfile.TemporaryDirectory(prefix="ggbook-video-") as temp_dir_raw:
+    with tempfile.TemporaryDirectory(prefix="ggmbook-video-") as temp_dir_raw:
         temp_dir = Path(temp_dir_raw)
         source_path = download_source_if_needed(args.source, temp_dir)
 

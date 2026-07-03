@@ -27,7 +27,7 @@ LOG_PATH = REPO_ROOT / "tmp" / "archive_build.log"
 
 DEFAULT_TIMEOUT_SEC = 20
 DEFAULT_RETRIES = 2
-DEFAULT_USER_AGENT = "ggbook-archive-bot/1.0"
+DEFAULT_USER_AGENT = "ggmbook-archive-bot/1.0"
 
 
 @dataclass(frozen=True)

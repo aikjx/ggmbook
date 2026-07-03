@@ -9,7 +9,7 @@
 
 ## 适用范围
 
-- 仓库：`ggbook`
+- 仓库：`ggmbook`
 - 站点类型：VitePress 多语言内容站
 - 内容类型：书籍首页、课程讲义、研究论文、专题文稿、自动归档文章、图片、视频、音频
 - 自动化目录：`scripts/archives/`
@@ -58,7 +58,7 @@
 
 ```bash
 git clone <仓库地址>
-cd ggbook
+cd ggmbook
 ```
 
 ### 2. 安装 Node.js
@@ -409,7 +409,7 @@ pnpm dev --host 127.0.0.1 --port 8081
 
 ```bash
 git clone <仓库地址>
-cd ggbook
+cd ggmbook
 pnpm install
 pnpm build
 pnpm dev --host 127.0.0.1 --port 8081

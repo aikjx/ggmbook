@@ -1,7 +1,7 @@
 import os
 import re
 
-books_dir = r"D:\a10\aikjx\gitcode\ggbook\docs\books"
+books_dir = r"D:\a10\aikjx\gitcode\ggmbook\docs\books"
 
 def clean_file(filepath):
     with open(filepath, 'r', encoding='utf-8') as f:

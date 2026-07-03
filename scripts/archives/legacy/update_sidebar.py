@@ -1,8 +1,8 @@
 import os
 import json
 
-books_dir = r"D:\a10\aikjx\gitcode\ggbook\docs\books"
-config_path = r"D:\a10\aikjx\gitcode\ggbook\docs\.vitepress\config.ts"
+books_dir = r"D:\a10\aikjx\gitcode\ggmbook\docs\books"
+config_path = r"D:\a10\aikjx\gitcode\ggmbook\docs\.vitepress\config.ts"
 
 def get_articles(category):
     articles_dir = os.path.join(books_dir, category, 'articles')

@@ -82,7 +82,7 @@ def cmd_verify_media(args: argparse.Namespace) -> int:
 def main() -> int:
     parser = argparse.ArgumentParser(
         prog="python -m scripts.archives.main",
-        description="ggbook 归档管理工具 - 统一入口",
+        description="ggmbook 归档管理工具 - 统一入口",
         formatter_class=argparse.RawDescriptionHelpFormatter,
         epilog="""
 业务架构映射：
